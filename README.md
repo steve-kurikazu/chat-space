@@ -1,5 +1,5 @@
-# README
-## usersテーブル
+# DB設計
+## users table
 |Column|Type|Options|
 |------|----|-------|
 |username|string|null: false|
@@ -11,7 +11,7 @@
 - has_many :groups_users
 - has_many :groups, through: :groups_users
 
-## groupsテーブル
+## groups table
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
@@ -21,7 +21,7 @@
 - has_many :groups_users
 - has_many :users, through: :groups_users
 
-## groups_usersテーブル
+## groups_users table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -31,7 +31,7 @@
 - belongs_to :group
 - belongs_to :user
 
-## messagesテーブル
+## messages table
 |Column|Type|Options|
 |------|----|-------|
 |body|text|null: false|

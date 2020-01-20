@@ -58,3 +58,6 @@ gem 'erb2haml'
 
 # Setting for FontAwesome
 gem 'font-awesome-sass'
+
+# For user management
+gem 'devise'

@@ -1,6 +1,6 @@
-- latest_message1 = {group_name: "techcamp", message: "まだメッセージがありません"}
-- latest_message2 = {group_name: "kz", message: "お腹がすきました"}
-- latest_messages = [latest_message1, latest_message2]
+-# - latest_message1 = {group_name: "techcamp", message: "まだメッセージがありません"}
+-# - latest_message2 = {group_name: "kz", message: "お腹がすきました"}
+-# - latest_messages = [latest_message1, latest_message2]
 
 .side_bar
   .side_bar__user_name
@@ -8,14 +8,15 @@
       .top_items__name
         = current_user.name
       .top_items__icons
-        = link_to "#", class: "top_items__icons__btn" do
+        = link_to new_group_path, class: "top_items__icons__btn" do
           = icon('fas', 'edit')
         = link_to edit_user_path(current_user), class: "top_items__icons__btn" do
           = icon('fas', 'cog')
   .side_bar__group_list
-    - latest_messages.each do |message|
+    - current_user.groups.each do |message|
       .latest_message
-        .latest_message__name
-          #{message[:group_name]}
-        .latest_message__message
-          #{message[:message]}
+        = link_to '#' do
+          .latest_message__name
+            = message.name
+          .latest_message__message
+            メッセージはまだありません。

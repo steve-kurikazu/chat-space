@@ -1,7 +1,3 @@
--# - latest_message1 = {group_name: "techcamp", message: "まだメッセージがありません"}
--# - latest_message2 = {group_name: "kz", message: "お腹がすきました"}
--# - latest_messages = [latest_message1, latest_message2]
-
 .side_bar
   .side_bar__user_name
     .top_items
@@ -13,10 +9,10 @@
         = link_to edit_user_path(current_user), class: "top_items__icons__btn" do
           = icon('fas', 'cog')
   .side_bar__group_list
-    - current_user.groups.each do |message|
+    - current_user.groups.each do |group|
       .latest_message
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .latest_message__name
-            = message.name
+            = group.name
           .latest_message__message
-            メッセージはまだありません。
+            = group.show_last_message

@@ -61,3 +61,10 @@ gem 'font-awesome-sass'
 
 # For user management
 gem 'devise'
+
+# Image Uploader
+gem 'carrierwave'
+gem 'mini_magick'
+
+# debug Tool
+gem 'pry-rails'

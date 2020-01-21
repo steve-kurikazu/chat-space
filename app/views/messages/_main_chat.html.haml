@@ -1,39 +1,23 @@
-- member1 = "kz1"
-- member2 = "kz2"
-- current_group = "test"
-- current_group_members = [member1, member2]
- 
-- message1 = {name: "masa", text: "おはよう!", date: "2019/11/20(Wed) 17:43:01"}
-- message2 = {name: "masa", text: "お腹がすいた!", date: "2019/11/20(Wed) 21:43:01"}
-- messages = [message1, message2]
-
 .main_chat
   .main_chat__group_info
     .group_display
       .group_display__name
-        #{current_group}
+        = @group.name
       %ul.group_display__member
         Member :
-        - current_group_members.each do |member|
-          %li #{member}
-    = link_to "#", class: "group_edit" do
+        - @group.users.each do |member|
+          %li #{member[:name]}
+    = link_to edit_group_path(@group), class: "group_edit" do
       Edit
   .main_chat__message_list
-    - messages.each do |message|
-      .message
-        .message_title
-          .message_title__name
-            #{message[:name]}
-          .message_title__date
-            #{message[:date]}
-        .message_text
-          #{message[:text]}
+    .messages
+      = render @messages
   .main_chat__message_form
     .container
-      %form.input_box
-        %input.input_box__text{type: "text", placeholder: "type a message"}
-        %label.input_box__image
-          = icon('far', 'image')
-          %input.hidden{type: "file"}
-      %form
-        %input.submit_btn{type: "submit", value: "Send"}
+      = form_for [@group, @message] do |f|
+        .input_box
+          = f.text_field :content, class: 'input_box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input_box__image' do
+            = icon('far', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'submit_btn'

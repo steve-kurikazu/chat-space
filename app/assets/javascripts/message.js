@@ -2,71 +2,71 @@ $(function() {
   function buildHTML(message){
     if ( message.content && message.image ) {
       var html =
-      `<div class="message" data-message-id=${message.id}>
-      <div class="message_title">
-      <div class="message_title__name">
-      ${message.user_name}
-      </div>
-      <div class="message_title__date">
-      ${message.created_at}
-      </div>
-      </div>
-      <div class="message_text">
-      <p class="message_text__content">
-      ${message.content}
-      </p>
-      <img src="${message.image}", class="message_text__image">
-      </div>
-      </div>`
+       `<div class="message" data-message-id=${message.id}>
+          <div class="message_title">
+            <div class="message_title__name">
+              ${message.user_name}
+            </div>
+            <div class="message_title__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message_text">
+            <p class="message_text__content">
+              ${message.content}
+            </p>
+            <img src="${message.image}", class="message_text__image">
+          </div>
+        </div>`
     } else if (message.content) {
       var html =
-      `<div class="message" data-message-id=${message.id}>
-      <div class="message_title">
-      <div class="message_title__name">
-      ${message.user_name}
-      </div>
-      <div class="message_title__date">
-      ${message.created_at}
-      </div>
-      </div>
-      <div class="message_text">
-      <p class="message_text__content">
-      ${message.content}
-      </p>
-      </div>
-      </div>`
+       `<div class="message" data-message-id=${message.id}>
+          <div class="message_title">
+            <div class="message_title__name">
+              ${message.user_name}
+            </div>
+            <div class="message_title__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message_text">
+            <p class="message_text__content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
     } else if (message.image) {
       var html =
-      `<div class="message" data-message-id=${message.id}>
-      <div class="message_title">
-      <div class="message_title__name">
-      ${message.user_name}
-      </div>
-      <div class="message_title__date">
-      ${message.created_at}
-      </div>
-      </div>
-      <div class="message_text">
-      <img src="${message.image}", class="message_text__image">
-      </div>
-      </div>`
+       `<div class="message" data-message-id=${message.id}>
+          <div class="message_title">
+            <div class="message_title__name">
+              ${message.user_name}
+            </div>
+            <div class="message_title__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message_text">
+            <img src="${message.image}", class="message_text__image">
+          </div>
+        </div>`
     } else {
       var html =
-      `<div class="message">
-      <div class="message_title">
-      <div class="message_title__name">
-      ${message.user_name}
-      </div>
-      <div class="message_title__date">
-      ${message.created_at}
-      </div>
-      </div>
-      <div class="message_text">
-      <p class="message_text__content">
-      ${message.content}
-      </p>
-      </div>
-      </div>`
+       `<div class="message">
+          <div class="message_title">
+            <div class="message_title__name">
+              ${message.user_name}
+            </div>
+            <div class="message_title__date">
+              ${message.created_at}
+            </div>
+          </div>
+          <div class="message_text">
+            <p class="message_text__content">
+              ${message.content}
+            </p>
+          </div>
+        </div>`
     };
     return html;
   };
@@ -118,7 +118,7 @@ $(function() {
       }
     })
     .fail(function() {
-      console.log('error');
+      alert('通信エラーです。自動更新ができません。');
     });
   };
 

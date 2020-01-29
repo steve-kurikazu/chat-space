@@ -73,7 +73,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # debug Tool
-gem 'pry-rails'%
+gem 'pry-rails'
 
 # For ajax
 gem 'jquery-rails'

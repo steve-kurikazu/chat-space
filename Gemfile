@@ -82,6 +82,7 @@ gem 'devise'
 # Image Uploader
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 # debug Tool
 gem 'pry-rails'
